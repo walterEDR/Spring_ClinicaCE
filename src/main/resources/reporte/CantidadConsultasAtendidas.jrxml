@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CantidadConsultasAtendidas" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d9174281-e5bf-443c-8c93-8540f3f40371">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapterClinica.jrdax"/>
+	<queryString language="SQL">
+	</queryString>
+	<field name="nombreEspecialidad" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre_especiadad"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombreEspecialidad"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="especialidad"/>
+	</field>
+	<field name="cantidadConsulta" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cantidadConsulta"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantidadConsulta"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="800" height="79" forecolor="#FCF8F7" backcolor="#5C5DB8" uuid="4e6c3c71-2535-4577-b307-057cad93cd5d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="80" y="20" width="600" height="41" forecolor="#FCFAFA" uuid="538f4566-c16e-4b62-9ebf-e64181cb241b"/>
+				<textElement textAlignment="Center">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clínica Médica de Binestar Universitario]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="200" y="5" width="353" height="30" uuid="7295b323-8ee5-439a-bfbe-186ee7329bdf"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de consultas por especialidad médica]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="54" y="30" width="196" height="30" uuid="06f63c1a-a5c3-4981-bf0f-b1abf4935989"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especialidad médica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="30" width="154" height="30" uuid="97f9998b-4369-482a-9e32-0fb270287ed5"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad de consultas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="20" width="100" height="30" uuid="2cce0a5a-e4ac-4043-b44b-4aa15e8fbdc7"/>
+				<textFieldExpression><![CDATA[$F{nombreEspecialidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="530" y="10" width="100" height="30" uuid="d91e9526-990e-4144-8b26-8dfea070c25b"/>
+				<textFieldExpression><![CDATA[$F{cantidadConsulta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

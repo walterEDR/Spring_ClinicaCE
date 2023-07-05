@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.5.final using JasperReports Library version 6.20.5-3efcf2e67f959db3888d79f73dde2dbd7acb4f8e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ConusltaMedicaEspecialidad" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0080a8c5-f80b-4dbe-96a8-75952615acf2">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapterClinica.jrdax"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+consulta.fecha_consulta, 
+consulta.hora_consulta, 
+consulta.num_consultorio, 
+especialidad.nombre_especiadad,
+ concat_ws(' ', medico.nombre_medico, medico.apellido_medico) as nombreCompletoMedico, 
+ concat_ws(' ', paciente.nombre_paciente, paciente.apellido_paciente) as nombreCompletoPaciente
+FROM
+consulta
+INNER JOIN
+especialidad
+ON 
+consulta.id_especialidad = especialidad.id_especialidad
+INNER JOIN
+medico
+ON 
+consulta.id_medico = medico.id_medico
+INNER JOIN
+paciente
+ON 
+consulta.id_paciente = paciente.id_paciente
+ORDER BY especialidad.nombre_especiadad]]>
+	</queryString>
+	<field name="nombreCompletoPaciente" class="java.lang.String"/>
+
+
+	<field name="fechaConsulta" class="java.lang.String"/>
+
+	<field name="horaConsulta" class="java.lang.String"/>
+
+
+	<field name="numConsultorio" class="java.lang.String"/>
+
+
+	<field name="nombreEspeciadad" class="java.lang.String"/>
+
+
+	<field name="nombreCompletoMedico" class="java.lang.String"/>
+
+
+	<group name="nombreEspeciadad">
+		<groupExpression><![CDATA[$F{nombreEspeciadad}]]></groupExpression>
+	</group>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{nombreEspeciadad}]]></groupExpression>
+		<groupHeader>
+			<band height="93">
+				<staticText>
+					<reportElement x="10" y="12" width="100" height="30" uuid="80190eab-7fda-4b30-9a22-c76e84035e9c"/>
+					<text><![CDATA[Especialidad Medico]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="140" y="10" width="100" height="30" uuid="07bb8fbc-77e6-4362-b54d-e6c2492e8a00"/>
+					<textFieldExpression><![CDATA[$F{nombreEspeciadad}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="42" width="100" height="30" uuid="ff8ead72-9e16-4cf1-bb64-f5d6f7380d41"/>
+					<text><![CDATA[Consult]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="120" y="42" width="100" height="30" uuid="3a96d640-1288-4fc7-bdfd-f203d6161303"/>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="236" y="40" width="100" height="30" uuid="2be6d875-5fae-4bf5-8a88-cc2b572e4aef"/>
+					<text><![CDATA[Hora]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="340" y="42" width="100" height="30" uuid="70fc2a4c-e5de-4549-aea7-ccc6f32a2166"/>
+					<text><![CDATA[Paciente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="450" y="40" width="100" height="30" uuid="74b0ea1b-95a2-46ee-ad0c-4bc9b244d163"/>
+					<text><![CDATA[Medico]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="170" y="37" width="230" height="30" uuid="3478081d-40a8-4baf-a80e-5742baa004b7"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bienestar Universitario]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="42" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="10" width="100" height="30" uuid="48c02dad-60af-4605-9b2e-e8b5b2264216"/>
+				<textFieldExpression><![CDATA[$F{numConsultorio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="11" width="100" height="30" uuid="aff296cd-d44b-4488-a923-54efef7ae7e7"/>
+				<textFieldExpression><![CDATA[$F{fechaConsulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="10" width="100" height="30" uuid="3bca1878-e112-4fb2-98ee-c77574c973a0"/>
+				<textFieldExpression><![CDATA[$F{horaConsulta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="10" width="100" height="30" uuid="cf2a80b6-5b41-4ea1-b058-cf744912ddb8"/>
+				<textFieldExpression><![CDATA[$F{nombreCompletoPaciente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="10" width="100" height="30" uuid="be01d5d5-41a4-4781-ab77-552f7997d543"/>
+				<textFieldExpression><![CDATA[$F{nombreCompletoMedico}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="58" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
